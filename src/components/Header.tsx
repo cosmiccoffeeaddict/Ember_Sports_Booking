@@ -41,7 +41,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
               <span className="text-white font-bold text-sm">合</span>
             </div>
-            <span className="text-xl font-bold text-gray-900 whitespace-nowrap">合拍社</span>
+            <span className="text-xl font-bold text-gray-900 whitespace-nowrap" style={{ fontFamily: "'Courier New', monospace", letterSpacing: '0.2em' }}>合拍社</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
