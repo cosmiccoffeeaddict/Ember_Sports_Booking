@@ -20,7 +20,7 @@
     "i18next": "^23.7.0"
   },
   "engines": {
-    "node": "18"
+    "node": "24.x"
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",
