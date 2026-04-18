@@ -24,7 +24,7 @@
 | Framework Preset | Other |
 | Build Command | `pnpm run build` |
 | Output Directory | `dist` |
-| Install Command | `pnpm install` |
+| Install Command | `npm install` |
 
 ### 5. 环境变量配置
 在 Vercel 项目设置中添加以下环境变量：
