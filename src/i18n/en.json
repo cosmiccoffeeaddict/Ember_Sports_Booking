@@ -9,8 +9,10 @@
     "logout": "Sign Out"
   },
   "hero": {
-    "title": "Ember Sports Pickleball",
-    "subtitle": "Professional pickleball court operations, providing you with a premium sports experience",
+    "title": "Play Hard. Play Ember.",
+    "titleLine1": "Play Hard.",
+    "titleLine2": "Play Ember.",
+    "subtitle": "Shanghai's premier pickleball venue — book your court in seconds",
     "cta": "Book Now"
   },
   "features": {

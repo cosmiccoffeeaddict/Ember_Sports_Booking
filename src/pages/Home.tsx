@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin, Clock, Shield } from 'lucide-react';
-import HeroIllustration from '../components/HeroIllustration';
 import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
-  const { t, i18n } = useTranslation();
-  const isZh = i18n.language === 'zh';
+  const { t } = useTranslation();
 
   const features = [
     {
@@ -39,8 +37,9 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-wide mb-6"
               >
-                <span className="font-extrabold text-orange-500">{isZh ? '合拍' : 'Ember'}</span>
-                <span className="font-normal text-gray-800">{isZh ? '社' : 'Sports'}</span>
+                <span className="font-extrabold text-gray-800">{t('hero.titleLine1')}</span>
+                <br />
+                <span className="font-extrabold text-orange-500">{t('hero.titleLine2')}</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -64,14 +63,7 @@ const Home: React.FC = () => {
                 </Link>
               </motion.div>
             </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:block"
-            >
-              <HeroIllustration />
-            </motion.div>
+
           </div>
         </div>
       </section>
