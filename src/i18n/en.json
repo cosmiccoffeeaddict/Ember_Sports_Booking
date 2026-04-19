@@ -41,6 +41,7 @@
     "name": "Your Name",
     "phone": "Phone Number",
     "email": "Email (optional)",
+    "phoneInvalid": "Please enter a valid phone number (7-20 digits, may include +, spaces, hyphens, parentheses)",
     "success": "Booking confirmed!",
     "error": "Booking failed. Please try again.",
     "proceedToPay": "Proceed to Payment",

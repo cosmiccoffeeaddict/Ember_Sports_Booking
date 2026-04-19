@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Clock, MapPin, AlertTriangle, CheckCircle, CreditCard, Info, Calendar, Shield } from 'lucide-react';
 import { supabase } from '../supabase/client';
-import { format, addDays, startOfWeek, isSameDay } from 'date-fns';
+import { format, addDays, startOfWeek, isSameDay, isToday, parseISO } from 'date-fns';
 import { zhCN, enUS } from 'date-fns/locale';
 import { useTranslation } from 'react-i18next';
 import { sendBookingReceipt } from '../utils/email';
@@ -30,6 +30,8 @@ const timeSlots = [
   '18:00', '19:00', '20:00', '21:00', '22:00'
 ];
 
+const PHONE_REGEX = /^[+0-9\s()-]{7,20}$/;
+
 // Payment mode: when PAYMENT_ENABLED is not 'true', use mock payment
 const isPaymentEnabled = process.env.PAYMENT_ENABLED === 'true';
 const isMockPayment = !isPaymentEnabled;
@@ -54,6 +56,7 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
   const [guestName, setGuestName] = useState('');
   const [guestPhone, setGuestPhone] = useState('');
   const [guestEmail, setGuestEmail] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [bookingError, setBookingError] = useState('');
   const [toasts, setToasts] = useState<Toast[]>([]);
 
@@ -99,17 +102,40 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
     );
   };
 
+  const isSlotInPast = (time: string) => {
+    if (!isToday(selectedDate)) return false;
+    const now = new Date();
+    const currentHour = now.getHours();
+    const slotHour = parseInt(time.split(':')[0], 10);
+    return slotHour <= currentHour;
+  };
+
   const handleSlotClick = (court: Court, time: string) => {
     if (isSlotBooked(court.id, time)) return;
     setSelectedSlot({ court, time });
     setBookingError('');
+    setPhoneError('');
     setShowModal(true);
+  };
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setGuestPhone(value);
+    if (value && !PHONE_REGEX.test(value)) {
+      setPhoneError(t('booking.phoneInvalid'));
+    } else {
+      setPhoneError('');
+    }
   };
 
   // Step 1: User confirms booking details -> proceed to payment
   const handleConfirmBooking = () => {
     if (!selectedSlot) return;
     if (!user && (!guestName || !guestPhone)) return;
+    if (!user && guestPhone && !PHONE_REGEX.test(guestPhone)) {
+      setPhoneError(t('booking.phoneInvalid'));
+      return;
+    }
     setShowModal(false);
 
     if (isMockPayment) {
@@ -146,7 +172,7 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
           guest_phone: guestPhone || null,
           total_amount: selectedSlot.court.price_per_hour,
           status: 'confirmed',
-          payment_status: 'mock_paid',
+          payment_status: 'paid',
         })
         .select()
         .single();
@@ -175,6 +201,9 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
         addToast(t('booking.testMode.success'), 'success');
         addToast(t('booking.receipt.logged'), 'info');
       } else {
+        if (error && process.env.NODE_ENV !== 'production') {
+          console.error('Booking error:', error.message, error.details, error.hint, error.code);
+        }
         setBookingError(t('booking.error'));
       }
     } else {
@@ -226,9 +255,15 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
 
           addToast(t('booking.receipt.sent'), 'success');
         } else {
+          if (error && process.env.NODE_ENV !== 'production') {
+            console.error('Booking error:', error.message, error.details, error.hint, error.code);
+          }
           setBookingError(t('booking.error'));
         }
-      } catch {
+      } catch (err) {
+        if (process.env.NODE_ENV !== 'production') {
+          console.error('Booking exception:', err);
+        }
         setBookingError(t('booking.error'));
       }
     }
@@ -397,19 +432,20 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
                     </div>
                     {timeSlots.map((time) => {
                       const booked = isSlotBooked(court.id, time);
+                      const past = isSlotInPast(time);
                       return (
                         <button
                           key={`${court.id}-${time}`}
                           onClick={() => handleSlotClick(court, time)}
-                          disabled={booked}
+                          disabled={booked || past}
                           className={`p-2 border-b border-r border-gray-100 transition-all ${
-                            booked ? 'bg-gray-200 cursor-not-allowed' : 'bg-white hover:bg-primary/5 cursor-pointer'
+                            booked || past ? 'bg-gray-200 cursor-not-allowed' : 'bg-white hover:bg-primary/5 cursor-pointer'
                           }`}
                         >
                           <div className={`w-full h-8 rounded-lg flex items-center justify-center text-xs ${
-                            booked ? 'text-gray-400' : 'text-primary font-medium'
+                            booked || past ? 'text-gray-400' : 'text-primary font-medium'
                           }`}>
-                            {booked ? t('booking.booked') : t('booking.available')}
+                            {booked ? t('booking.booked') : past ? '-' : t('booking.available')}
                           </div>
                         </button>
                       );
@@ -434,13 +470,14 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
                   <div className="flex gap-2 p-4 min-w-max">
                     {timeSlots.map((time) => {
                       const booked = isSlotBooked(court.id, time);
+                      const past = isSlotInPast(time);
                       return (
                         <button
                           key={`${court.id}-${time}`}
                           onClick={() => handleSlotClick(court, time)}
-                          disabled={booked}
+                          disabled={booked || past}
                           className={`flex-shrink-0 w-16 min-h-[44px] py-3 rounded-xl text-sm font-medium transition-all ${
-                            booked
+                            booked || past
                               ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                               : 'bg-white border-2 border-primary/20 text-primary hover:bg-primary/5'
                           }`}
@@ -499,7 +536,10 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
               {!user && (
                 <div className="space-y-3 mb-6">
                   <input type="text" placeholder={t('booking.name')} value={guestName} onChange={(e) => setGuestName(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
-                  <input type="tel" placeholder={t('booking.phone')} value={guestPhone} onChange={(e) => setGuestPhone(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
+                  <div>
+                    <input type="tel" placeholder={t('booking.phone')} value={guestPhone} onChange={handlePhoneChange} className={`w-full px-4 py-3 rounded-lg border ${phoneError ? 'border-red-500 focus:border-red-500 focus:ring-2 focus:ring-red-200' : 'border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20'} outline-none`} />
+                    {phoneError && <p className="mt-1 text-sm text-red-600">{phoneError}</p>}
+                  </div>
                   <input type="email" placeholder={t('booking.email')} value={guestEmail} onChange={(e) => setGuestEmail(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" />
                 </div>
               )}
@@ -512,10 +552,10 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
               )}
               <button
                 onClick={handleConfirmBooking}
-                disabled={!user && (!guestName || !guestPhone)}
+                disabled={submitting || (!user && (!guestName || !guestPhone))}
                 className="w-full min-h-[44px] py-3 bg-primary text-white font-medium rounded-xl hover:bg-primary/90 transition-colors disabled:opacity-50"
               >
-                {t('booking.proceedToPay')}
+                {submitting ? t('booking.processing') : t('booking.proceedToPay')}
               </button>
             </motion.div>
           </motion.div>
