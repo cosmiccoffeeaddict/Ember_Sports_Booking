@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Sports — Logo Exploration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ember-orange: #f97316;
+            --ember-amber: #f59e0b;
+            --ember-deep: #ea580c;
+            --dark-bg: #1a1a1a;
+            --dark-surface: #262626;
+            --light-bg: #fafafa;
+            --light-surface: #ffffff;
+            --text-primary: #171717;
+            --text-secondary: #525252;
+            --text-muted: #737373;
+            --border-light: #e5e5e5;
+            --border-dark: #404040;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header Section */
+        .header {
+            background: var(--dark-bg);
+            color: white;
+            padding: 80px 40px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(249, 115, 22, 0.08) 100%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-mark {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ember-orange);
+            margin-bottom: 24px;
+        }
+
+        .header h1 {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .header-subtitle {
+            font-size: 20px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+        }
+
+        /* Brand Context Section */
+        .context-section {
+            background: white;
+            padding: 60px 40px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .context-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ember-orange);
+            margin-bottom: 20px;
+        }
+
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .context-card {
+            padding: 24px;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 3px solid var(--ember-orange);
+        }
+
+        .context-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .context-card .name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--ember-orange);
+        }
+
+        .context-card .chinese {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .context-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Concepts Grid */
+        .concepts-section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .concepts-header {
+            margin-bottom: 60px;
+        }
+
+        .concepts-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .concepts-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+        }
+
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 32px;
+        }
+
+        @media (max-width: 768px) {
+            .concepts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Concept Card */
+        .concept-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .concept-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .concept-header {
+            padding: 32px 32px 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .concept-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ember-orange);
+            margin-bottom: 8px;
+        }
+
+        .concept-title {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+
+        .concept-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .concept-content {
+            padding: 32px;
+        }
+
+        /* Logo Display Sections */
+        .logo-section {
+            margin-bottom: 32px;
+        }
+
+        .logo-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .logo-section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-light);
+        }
+
+        /* Icon Sizes Display */
+        .icon-sizes {
+            display: flex;
+            gap: 24px;
+            align-items: flex-end;
+            margin-bottom: 24px;
+        }
+
+        .icon-size-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .icon-size-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .icon-box {
+            background: var(--light-bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-box.small {
+            width: 56px;
+            height: 56px;
+        }
+
+        .icon-box.medium {
+            width: 80px;
+            height: 80px;
+        }
+
+        /* Lockup Styles */
+        .lockups-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .lockup-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        .lockup-icon {
+            flex-shrink: 0;
+        }
+
+        .lockup-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .lockup-primary {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .lockup-secondary {
+            font-size: 14px;
+            font-weight: 300;
+            color: var(--text-secondary);
+        }
+
+        .lockup-chinese {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .lockup-variant {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Background Variants */
+        .bg-variants {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .bg-variants {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .bg-variant {
+            padding: 32px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .bg-variant.light {
+            background: white;
+            border: 1px solid var(--border-light);
+        }
+
+        .bg-variant.dark {
+            background: var(--dark-bg);
+        }
+
+        .bg-variant.dark .lockup-primary {
+            color: white;
+        }
+
+        .bg-variant.dark .lockup-secondary {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .bg-variant.dark .lockup-chinese {
+            color: white;
+        }
+
+        /* SVG Styles */
+        .ember-gradient {
+            fill: url(#emberGradient);
+        }
+
+        .ember-solid {
+            fill: var(--ember-orange);
+        }
+
+        .ember-dark {
+            fill: var(--ember-deep);
+        }
+
+        .ember-white {
+            fill: white;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-bg);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 40px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .footer-brand {
+            color: var(--ember-orange);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- SVG Gradients Definition -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="emberGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-mark">Brand Identity</div>
+            <h1>Ember Sports<br>Logo Exploration</h1>
+            <p class="header-subtitle">A comprehensive study of visual identity concepts for a modern sports venue and community platform.</p>
+        </div>
+    </header>
+
+    <!-- Brand Context -->
+    <section class="context-section">
+        <div class="context-content">
+            <div class="section-label">Brand Context</div>
+            <h2 style="font-size: 28px; font-weight: 700; margin-bottom: 8px;">Understanding the Names</h2>
+            <p style="color: var(--text-secondary); max-width: 700px;">Each brand name carries distinct meaning and cultural resonance. The visual identity should honor these layers while creating a cohesive, memorable mark.</p>
+            
+            <div class="context-grid">
+                <div class="context-card">
+                    <h3>Primary Brand</h3>
+                    <div class="name">Ember</div>
+                    <div class="chinese">合拍社</div>
+                    <p>Ember evokes fire, spark, and energy — the glowing heart of flame. 合拍社 suggests harmony, being in sync, and community gathering.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Origin Story</h3>
+                    <div class="name">Off the Zone</div>
+                    <div class="chinese">新加坡起源</div>
+                    <p>Started as a badminton academy in Singapore, evolved into venue operations. Represents breaking boundaries and peak performance.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Parent Company</h3>
+                    <div class="name">聚芯</div>
+                    <div class="chinese">Jù Xīn</div>
+                    <p>聚 means to gather/assemble; 芯 means core/heart. Represents bringing people together at the heart of community.</p>
+                </div>
+                <div class="context-card">
+                    <h3>Design Direction</h3>
+                    <div class="name">Modern Minimalist</div>
+                    <div class="chinese">现代极简</div>
+                    <p>Clean lines, geometric precision, simple typography. Inspired by Nike, Airbnb — bold yet refined, memorable yet versatile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Concepts -->
+    <section class="concepts-section">
+        <div class="concepts-header">
+            <div class="section-label">Logo Concepts</div>
+            <h2>Six Visual Directions</h2>
+            <p>Each concept explores a different facet of the brand story — from the spark of energy to the harmony of connection, from the court itself to the rally of play.</p>
+        </div>
+
+        <div class="concepts-grid">
+            
+            <!-- Concept 1: The Spark -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 01</div>
+                    <h3 class="concept-title">The Spark</h3>
+                    <p class="concept-description">A minimal geometric flame formed by intersecting triangles. Captures the essence of "Ember" — fire, energy, and the spark that ignites passion for sport.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                        <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                        <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                        <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                        <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                        <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <polygon points="24,4 32,28 24,24 16,28" class="ember-gradient"/>
+                                    <polygon points="24,20 30,36 24,32 18,36" fill="#ea580c"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <polygon points="24,4 32,28 24,24 16,28" fill="#f97316"/>
+                                    <polygon points="24,20 30,36 24,32 18,36" fill="#f59e0b"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 2: The Connection -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 02</div>
+                    <h3 class="concept-title">The Connection</h3>
+                    <p class="concept-description">Two semicircles meeting in harmony — representing 合拍 (in sync) and the rally of racquet sports. Negative space creates a subtle dialogue between forms.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                        <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                    <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <path d="M8 24 A16 16 0 0 1 40 24" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                                    <path d="M40 24 A16 16 0 0 1 8 24" fill="none" stroke="#f59e0b" stroke-width="8" stroke-linecap="round"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 3: The Court -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 03</div>
+                    <h3 class="concept-title">The Court</h3>
+                    <p class="concept-description">Minimalist top-down court lines forming an abstract geometric mark. Three clean strokes suggest a playing field — instantly recognizable to players, elegantly abstract to others.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                        <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                    <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                    <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <rect x="6" y="6" width="36" height="36" fill="none" stroke="#f97316" stroke-width="3"/>
+                                    <line x1="24" y1="6" x2="24" y2="42" stroke="#f97316" stroke-width="3"/>
+                                    <line x1="6" y1="24" x2="42" y2="24" stroke="#f59e0b" stroke-width="3"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 4: The Monogram -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 04</div>
+                    <h3 class="concept-title">The Monogram</h3>
+                    <p class="concept-description">A stylized letter "E" with dynamic angular cuts suggesting speed and forward motion. Works powerfully as a standalone app icon while maintaining clear brand recognition.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                        <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                        <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                        <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                        <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                        <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                        <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                        <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                        <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                        <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                        <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" class="ember-gradient"/>
+                                    <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#ea580c"/>
+                                    <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#ea580c"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <path d="M8 8 L32 8 L28 16 L12 16 L12 20 L26 20 L22 28 L12 28 L12 40 L8 40 Z" fill="#f97316"/>
+                                    <path d="M32 8 L40 8 L36 16 L28 16 Z" fill="#f59e0b"/>
+                                    <path d="M26 20 L34 20 L30 28 L22 28 Z" fill="#f59e0b"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 5: The Pulse -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 05</div>
+                    <h3 class="concept-title">The Pulse</h3>
+                    <p class="concept-description">Concentric circles radiating from a center point — representing 聚芯 (gathering at the core) and the energy of community. Minimal and scalable to any size without losing impact.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                        <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                        <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                        <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                        <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                        <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                        <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                    <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                    <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <circle cx="24" cy="24" r="4" fill="#f97316"/>
+                                    <circle cx="24" cy="24" r="10" fill="none" stroke="#f97316" stroke-width="2"/>
+                                    <circle cx="24" cy="24" r="16" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4 2"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concept 6: The Rally -->
+            <div class="concept-card">
+                <div class="concept-header">
+                    <div class="concept-number">Concept 06</div>
+                    <h3 class="concept-title">The Rally</h3>
+                    <p class="concept-description">Two angular chevron shapes meeting at a point — capturing the back-and-forth energy of racquet sports. Dynamic yet minimal, suggesting movement and competition.</p>
+                </div>
+                <div class="concept-content">
+                    <!-- Icon Sizes -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Icon Sizes</div>
+                        <div class="icon-sizes">
+                            <div class="icon-size-item">
+                                <div class="icon-box small">
+                                    <svg width="32" height="32" viewBox="0 0 48 48">
+                                        <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                        <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                        <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">40px</span>
+                            </div>
+                            <div class="icon-size-item">
+                                <div class="icon-box medium">
+                                    <svg width="48" height="48" viewBox="0 0 48 48">
+                                        <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                        <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                        <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <span class="icon-size-label">64px</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lockups -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Lockup Variations</div>
+                        <div class="lockups-grid">
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                        <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                        <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember<span style="font-weight: 300; color: var(--text-secondary);">Sports</span></span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                        <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                        <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-chinese">合拍社</span>
+                                </div>
+                            </div>
+                            <div class="lockup-item">
+                                <div class="lockup-icon">
+                                    <svg width="36" height="36" viewBox="0 0 48 48">
+                                        <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                        <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                        <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                    </svg>
+                                </div>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary" style="font-weight: 600;">Off the Zone</span>
+                                    <span class="lockup-variant">Singapore</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Background Variants -->
+                    <div class="logo-section">
+                        <div class="logo-section-label">Background Variants</div>
+                        <div class="bg-variants">
+                            <div class="bg-variant light">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                    <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                    <circle cx="24" cy="24" r="3" fill="#ea580c"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                            <div class="bg-variant dark">
+                                <svg width="32" height="32" viewBox="0 0 48 48">
+                                    <polygon points="8,12 20,24 8,36" fill="#f97316"/>
+                                    <polygon points="40,12 28,24 40,36" fill="#f59e0b"/>
+                                    <circle cx="24" cy="24" r="3" fill="#fbbf24"/>
+                                </svg>
+                                <div class="lockup-text">
+                                    <span class="lockup-primary">Ember</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-brand">Ember Sports</div>
+        <p>Logo Exploration &mdash; Concept Review Document</p>
+        <p style="margin-top: 4px; opacity: 0.7;">Created for brand identity development</p>
+    </footer>
+</body>
+</html>

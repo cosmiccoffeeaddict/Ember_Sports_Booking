@@ -28,7 +28,7 @@ const NotFound: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-2xl font-bold text-gray-800 mb-4"
+          className="text-2xl font-bold text-gray-900 mb-4"
         >
           {t('notFound.heading')}
         </motion.h2>

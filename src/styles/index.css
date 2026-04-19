@@ -17,24 +17,15 @@ body {
 }
 
 :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --text-secondary: #8a8a8a;
-}
-
-:root.dark,
-[data-theme='dark'] {
-  --bg-color: #1a1a1a;
-  --text-color: #ffffff;
-  --text-secondary: #9ca3af;
+  --ember-orange: #f97316;
 }
 
 body {
   font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #f9fafb;
+  color: #111827;
   font-size: 14px;
 }
 
@@ -55,17 +46,17 @@ body {
 }
 
 .scrollbar-thin::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #1f2937;
   border-radius: 4px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #4b5563;
   border-radius: 4px;
 }
 
 .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: #6b7280;
 }
 
 /* Touch action utilities for mobile */
@@ -98,4 +89,19 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
   background-attachment: local, local, scroll, scroll;
+}
+
+/* Card shadow utility from logo exploration */
+.card-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 10px 40px rgba(0,0,0,0.04);
+}
+
+/* Section label style - Space Grotesk uppercase */
+.section-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ember-orange);
 }

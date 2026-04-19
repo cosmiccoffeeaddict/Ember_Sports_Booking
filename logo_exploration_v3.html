@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ember Sports — Logo Exploration v3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ember-orange: #f97316;
+            --ember-amber: #f59e0b;
+            --dark-bg: #111827;
+            --light-bg: #ffffff;
+            --card-bg: #1f2937;
+            --text-light: #f9fafb;
+            --text-dark: #111827;
+            --text-muted: #9ca3af;
+            --border-color: #374151;
+            --gradient: linear-gradient(135deg, var(--ember-orange), var(--ember-amber));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(180deg, rgba(17, 24, 39, 0.95) 0%, rgba(17, 24, 39, 0.85) 100%);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .header .subtitle {
+            color: var(--ember-orange);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Grid */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Logo Card */
+        .logo-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--ember-orange);
+            box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+        }
+
+        .logo-card-header {
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(90deg, rgba(249, 115, 22, 0.1), transparent);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-card-header h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .logo-card-header span {
+            color: var(--ember-orange);
+            font-weight: 700;
+        }
+
+        /* Logo Display Areas */
+        .logo-display {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .size-row {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .size-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-width: 50px;
+        }
+
+        /* Lockup Styles */
+        .lockup {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lockup-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .lockup-text.chinese {
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 500;
+        }
+
+        .lockup-text.english-alt {
+            font-weight: 500;
+        }
+
+        /* Light/Dark Sections */
+        .bg-light {
+            background: var(--light-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .bg-dark {
+            background: var(--dark-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .bg-dark .lockup-text {
+            color: var(--text-light);
+        }
+
+        /* Description */
+        .logo-description {
+            padding: 1rem 1.5rem;
+            background: rgba(249, 115, 22, 0.05);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* SVG Styles */
+        .icon-48 {
+            width: 48px;
+            height: 48px;
+        }
+
+        .icon-80 {
+            width: 80px;
+            height: 80px;
+        }
+
+        .icon-48 svg, .icon-80 svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.75rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .size-row {
+                gap: 1rem;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-card {
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .logo-card:nth-child(1) { animation-delay: 0.05s; }
+        .logo-card:nth-child(2) { animation-delay: 0.1s; }
+        .logo-card:nth-child(3) { animation-delay: 0.15s; }
+        .logo-card:nth-child(4) { animation-delay: 0.2s; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Ember Sports — Logo Exploration v3</h1>
+        <p>Refining B3 (合 Abstract), C3 (Arc + Spark), and B2 (Rally Marks)</p>
+        <div class="subtitle">12 Variations &middot; 3 Groups &middot; 4 Concepts Each</div>
+    </header>
+
+    <main class="container">
+        <!-- Group 1: 合 Abstract Variations -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Group 1: 合 Abstract Variations</h2>
+                <p>Angular/geometric strokes that subtly suggest the Chinese character 合 (together/match), bridging English and Chinese branding.</p>
+            </div>
+
+            <div class="logo-grid">
+                <!-- 1A: Clean 合 with balanced strokes -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>1A</span> — Clean 合 with balanced strokes</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Top chevron (人) -->
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <!-- Bottom rectangle (口) -->
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Refined B3 with cleaner proportions. A chevron/triangle on top (abstract 人) and simple rectangle below (abstract 口). Thick uniform strokes with rounded ends — reads as geometric mark first, 合 second.
+                    </div>
+                </div>
+
+                <!-- 1B: 合 with ember dot -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>1B</span> — 合 with ember dot</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                        <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12 20 L24 8 L36 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="14" y="24" width="20" height="16" rx="2" stroke="#f97316" stroke-width="5" fill="none"/>
+                                            <circle cx="24" cy="8" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Same abstract 合 structure with a small orange dot at the apex of the triangle — representing the ember/spark. Creates a focal point and adds brand meaning while maintaining geometric simplicity.
+                    </div>
+                </div>
+
+                <!-- 1C: 合 as negative space in circle -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>1C</span> — 合 as negative space in circle</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                        <path d="M14 22 L24 12 L34 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="16" y="26" width="16" height="12" rx="2" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                        <path d="M14 22 L24 12 L34 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="16" y="26" width="16" height="12" rx="2" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#ffffff" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                        <path d="M14 22 L24 12 L34 22" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="16" y="26" width="16" height="12" rx="2" stroke="#111827" stroke-width="4" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                        <path d="M14 22 L24 12 L34 22" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <rect x="16" y="26" width="16" height="12" rx="2" stroke="#111827" stroke-width="4" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#111827" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#111827" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="24" cy="24" r="22" fill="#f97316"/>
+                                            <path d="M14 22 L24 12 L34 22" stroke="#111827" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <rect x="16" y="26" width="16" height="12" rx="2" stroke="#111827" stroke-width="4" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Abstract 合 strokes placed inside a circle using negative space. The circle contains the mark, suggesting community (社). Orange circle with white/dark negative space for the strokes — creates strong visual impact.
+                    </div>
+                </div>
+
+                <!-- 1D: 合 with flowing curves -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>1D</span> — 合 with flowing curves</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 22 Q24 6 38 22" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M14 26 Q14 40 24 40 Q34 40 34 26" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Instead of angular strokes, gentle curves form the 合 abstraction. Softer, more approachable while retaining the character reference. Thick curved strokes with rounded caps.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Group 2: Arc + Spark Variations -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Group 2: Arc + Spark Variations</h2>
+                <p>A sweeping arc (like a racquet swing) with a spark/dot at the point of impact. Minimal, dynamic, elegant.</p>
+            </div>
+
+            <div class="logo-grid">
+                <!-- 2A: Single arc with larger spark -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>2A</span> — Single arc with larger spark</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 36 Q24 8 40 20" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="40" cy="20" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Refined C3 with a thicker, more confident arc stroke. Larger spark dot clearly visible at small sizes. Arc sweeps from lower-left to upper-right, conveying upward energy and motion.
+                    </div>
+                </div>
+
+                <!-- 2B: Double arc with spark -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>2B</span> — Double arc with spark</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                        <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 38 Q22 10 38 22" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <path d="M10 40 Q26 16 38 26" stroke="#f97316" stroke-width="3" stroke-linecap="round" fill="none"/>
+                                            <circle cx="38" cy="22" r="4" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Two parallel arcs suggesting two players/doubles with a spark at the meeting point. Slightly different lengths create dynamic asymmetry — more visual presence than a single arc.
+                    </div>
+                </div>
+
+                <!-- 2C: Arc forming partial circle -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>2C</span> — Arc forming partial circle</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 4 A20 20 0 1 1 8 36" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <circle cx="8" cy="36" r="5" fill="#f97316"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Arc sweeps about 270 degrees around, nearly completing a circle. Spark dot sits at the opening/gap, suggesting energy that's about to complete or connect. Dynamic tension in the incomplete form.
+                    </div>
+                </div>
+
+                <!-- 2D: Arc + spark inside rounded square -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>2D</span> — Arc + spark in rounded square</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                        <path d="M12 34 Q24 12 36 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <circle cx="36" cy="22" r="4" fill="#ffffff"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                        <path d="M12 34 Q24 12 36 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <circle cx="36" cy="22" r="4" fill="#ffffff"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#ffffff"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#ffffff"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#ffffff" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#ffffff"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                        <path d="M12 34 Q24 12 36 22" stroke="#111827" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <circle cx="36" cy="22" r="4" fill="#111827"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                        <path d="M12 34 Q24 12 36 22" stroke="#111827" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        <circle cx="36" cy="22" r="4" fill="#111827"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#111827" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#111827"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#111827" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#111827"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="4" y="4" width="40" height="40" rx="10" fill="#f97316"/>
+                                            <path d="M12 34 Q24 12 36 22" stroke="#111827" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                            <circle cx="36" cy="22" r="4" fill="#111827"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Arc + spark motif contained within a rounded square — instantly usable as a favicon or app icon. The containment creates a badge-like quality while maintaining the dynamic energy of the arc.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Group 3: Hybrid & B2 Fix -->
+        <section class="section">
+            <div class="section-header">
+                <h2>Group 3: Hybrid & B2 Fix</h2>
+                <p>Combining the best elements of 合-abstract and arc-spark, plus a properly rendered B2 (asymmetric rally marks).</p>
+            </div>
+
+            <div class="logo-grid">
+                <!-- 3A: B2 Fixed - Asymmetric rally marks -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>3A</span> — B2 Fixed: Asymmetric rally marks</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Thick stroke left (serving) -->
+                                        <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                        <!-- Thin stroke right (return) -->
+                                        <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                        <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                        <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                        <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 40 L24 20" stroke="#f97316" stroke-width="7" stroke-linecap="round"/>
+                                            <path d="M40 40 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        PROPERLY rendered B2: One thick angled stroke (player serving) meets a thinner angled stroke (return). They meet at a point, creating an implied diamond shape in negative space. Thick stroke on left, thin on right, both at ~45 degrees.
+                    </div>
+                </div>
+
+                <!-- 3B: 合 top + arc bottom hybrid -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>3B</span> — 合 top + arc bottom hybrid</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Top chevron from 合 -->
+                                        <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <!-- Arc bottom -->
+                                        <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 18 L24 6 L38 18" stroke="#f97316" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M8 38 Q24 24 40 38" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Triangle/chevron from 合 on top, with a sweeping arc below instead of the rectangle. Combines both winning concepts — references Chinese character structure and sport motion simultaneously.
+                    </div>
+                </div>
+
+                <!-- 3C: Rally marks with arc connection -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>3C</span> — Rally marks with arc connection</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Left chevron -->
+                                        <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <!-- Right chevron -->
+                                        <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <!-- Connecting arc -->
+                                        <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                        <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 20 L16 12 L24 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M24 20 L32 12 L40 20" stroke="#f97316" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                            <path d="M12 36 Q24 28 36 36" stroke="#f97316" stroke-width="4" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        Two chevron marks (from rally concept) connected by a subtle arc underneath — the arc ties them together visually (合拍 = in sync). Very minimal: just 3 strokes total suggesting partnership and coordination.
+                    </div>
+                </div>
+
+                <!-- 3D: Minimal ember mark -->
+                <div class="logo-card">
+                    <div class="logo-card-header">
+                        <h3><span>3D</span> — Minimal ember mark</h3>
+                    </div>
+                    <div class="logo-display">
+                        <div class="bg-light">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Left curve -->
+                                        <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <!-- Right curve -->
+                                        <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-dark">
+                            <div class="size-row">
+                                <span class="size-label">48px</span>
+                                <div class="icon-48">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="size-row" style="margin-top: 1rem;">
+                                <span class="size-label">80px</span>
+                                <div class="icon-80">
+                                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text">Ember Sports</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text chinese">合拍社</span>
+                                </div>
+                                <div class="lockup">
+                                    <div class="icon-48">
+                                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16 42 Q12 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                            <path d="M32 42 Q36 24 24 8" stroke="#f97316" stroke-width="5" stroke-linecap="round" fill="none"/>
+                                        </svg>
+                                    </div>
+                                    <span class="lockup-text english-alt">Off the Zone</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo-description">
+                        The simplest possible mark: a small flame-like shape made from just 2 curves. One curve leans left, one leans right, meeting at a point at the top. Looks like a flame, like two people meeting, like the top of 合. Ultimate minimalism — works at 16px favicon size.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="section" style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--border-color);">
+            <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-light);">Logo Exploration v3 Complete</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                12 variations expanding on the winning concepts from v2: B3 (合 Abstract), C3 (Arc + Spark), and the now-properly-rendered B2 (Rally Marks). Each variation explores different aspects of the Ember Sports brand — from Chinese character abstraction to dynamic motion to ultimate minimalism.
+            </p>
+        </section>
+    </main>
+</body>
+</html>

@@ -7,12 +7,11 @@ module.exports = {
     extend: {
       colors: {
         primary: '#f97316',
-        secondary: '#fb923c',
-        accent: '#fdba74',
       },
       fontFamily: {
         sans: ['Inter', 'Noto Sans SC', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['Inter', 'Noto Sans SC', 'system-ui', 'sans-serif'],
+        'space': ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {
         'xs': ['0.75rem', { lineHeight: '1rem' }],

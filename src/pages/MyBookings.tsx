@@ -115,7 +115,7 @@ const MyBookings: React.FC<MyBookingsProps> = ({ user }) => {
                   key={b.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="bg-white p-4 rounded-xl border border-gray-100 shadow-sm"
+                  className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm"
                 >
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center justify-between">
@@ -136,7 +136,7 @@ const MyBookings: React.FC<MyBookingsProps> = ({ user }) => {
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-gray-100">
+                    <div className="flex items-center justify-between pt-2 border-t border-gray-200">
                       <span className="font-medium text-primary">¥{b.total_amount}</span>
                       {b.status !== 'cancelled' && b.status !== 'completed' && (
                         <button

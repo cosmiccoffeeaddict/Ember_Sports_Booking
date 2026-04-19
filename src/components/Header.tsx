@@ -33,17 +33,14 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
+      className="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl shadow-md flex items-center justify-center flex-shrink-0">
-              <span className="text-white font-bold text-sm">E</span>
-            </div>
+          <Link to="/" className="flex items-center flex-shrink-0">
             <span className="text-2xl tracking-wide whitespace-nowrap">
               <span className="font-extrabold text-orange-500">{isZh ? '合拍' : 'Ember'}</span>
-              <span className="font-normal text-gray-800">{isZh ? '社' : 'Sports'}</span>
+              <span className="font-normal text-white">{isZh ? '社' : 'Sports'}</span>
             </span>
           </Link>
 
@@ -55,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                   key={item.path}
                   to={item.path}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-lg ${
-                    isActive ? 'text-primary' : 'text-gray-600 hover:text-gray-900'
+                    isActive ? 'text-primary' : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   <span className="flex items-center gap-1.5">
@@ -65,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute inset-0 bg-primary/5 rounded-lg -z-10"
+                      className="absolute inset-0 bg-primary/10 rounded-lg -z-10"
                       transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -79,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
             {user ? (
               <button
                 onClick={handleLogout}
-                className="text-sm text-gray-600 hover:text-primary transition-colors"
+                className="text-sm text-gray-300 hover:text-primary transition-colors"
               >
                 {t('nav.logout')}
               </button>
@@ -95,12 +92,13 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors text-gray-300"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? (
-              <X className="w-6 h-6 text-gray-600" />
+              <X className="w-6 h-6" />
             ) : (
-              <Menu className="w-6 h-6 text-gray-600" />
+              <Menu className="w-6 h-6" />
             )}
           </button>
         </div>
@@ -112,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-gray-100 bg-white"
+            className="lg:hidden border-t border-gray-800 bg-gray-900"
           >
             <div className="px-4 py-4 space-y-2">
               {navItems.map((item) => {
@@ -125,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-colors ${
                       isActive
                         ? 'bg-primary/10 text-primary'
-                        : 'text-gray-600 hover:bg-gray-100'
+                        : 'text-gray-300 hover:bg-gray-800'
                     }`}
                   >
                     <item.icon className="w-5 h-5" />
@@ -133,11 +131,11 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
                   </Link>
                 );
               })}
-              <div className="pt-2 border-t border-gray-100 mt-2">
+              <div className="pt-2 border-t border-gray-800 mt-2">
                 {user ? (
                   <button
                     onClick={handleLogout}
-                    className="w-full flex items-center gap-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl transition-colors"
+                    className="w-full flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-gray-800 rounded-xl transition-colors"
                   >
                     <User className="w-5 h-5" />
                     <span className="font-medium">{t('nav.logout')}</span>

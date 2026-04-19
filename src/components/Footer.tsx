@@ -17,8 +17,10 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-gray-400">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-gray-900 text-gray-400 relative overflow-hidden">
+      {/* Subtle orange gradient overlay */}
+      <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-bl from-orange-500/[0.05] to-transparent pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Column 1: Brand */}
           <div className="space-y-4">
@@ -28,7 +30,7 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-2xl tracking-wide whitespace-nowrap">
                 <span className="font-extrabold text-orange-500">{isZh ? '合拍' : 'Ember'}</span>
-                <span className="font-normal text-gray-200">{isZh ? '社' : 'Sports'}</span>
+                <span className="font-normal text-white">{isZh ? '社' : 'Sports'}</span>
               </span>
             </Link>
             <p className="text-sm leading-relaxed max-w-xs">
@@ -38,7 +40,7 @@ const Footer: React.FC = () => {
 
           {/* Column 2: Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-gray-200 font-semibold text-sm uppercase tracking-wider">
+            <h3 className="font-space text-xs font-semibold uppercase tracking-[0.15em] text-orange-500">
               {t('footer.quickLinks')}
             </h3>
             <ul className="space-y-3">
@@ -57,7 +59,7 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Contact */}
           <div className="space-y-4">
-            <h3 className="text-gray-200 font-semibold text-sm uppercase tracking-wider">
+            <h3 className="font-space text-xs font-semibold uppercase tracking-[0.15em] text-orange-500">
               {t('footer.contact')}
             </h3>
             <ul className="space-y-3">
