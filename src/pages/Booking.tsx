@@ -296,17 +296,19 @@ const BookingPage: React.FC<{ user: any }> = ({ user }) => {
                   {t('booking.info.pricing')}
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">{t('pricing.standard')}</span>
-                    <span className="font-semibold text-primary">¥80{t('pricing.perHour')}</span>
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">{t('booking.info.nonPeak')}</span>
+                      <span className="font-semibold text-primary">{t('booking.info.nonPeakPrice')}</span>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-0.5">{t('booking.info.nonPeakTime')}</p>
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">{t('pricing.vip')}</span>
-                    <span className="font-semibold text-primary">¥120{t('pricing.perHour')}</span>
-                  </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-gray-600">{t('pricing.training')}</span>
-                    <span className="font-semibold text-primary">¥60{t('pricing.perHour')}</span>
+                  <div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-gray-600">{t('booking.info.peak')}</span>
+                      <span className="font-semibold text-primary">{t('booking.info.peakPrice')}</span>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-0.5">{t('booking.info.peakTime')}</p>
                   </div>
                 </div>
               </div>

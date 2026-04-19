@@ -29,17 +29,7 @@
       "desc": "Online payment, court locked immediately after confirmation"
     }
   },
-  "pricing": {
-    "title": "Court Pricing",
-    "subtitle": "Transparent pricing, choose as needed",
-    "standard": "Standard Court",
-    "vip": "VIP Court",
-    "training": "Training Court",
-    "perHour": "/hour",
-    "standardDesc": "Courts A-D",
-    "vipDesc": "Courts E-F",
-    "trainingDesc": "Courts G-H"
-  },
+
   "booking": {
     "title": "Book a Court",
     "court": "Court",
@@ -72,8 +62,14 @@
     "info": {
       "title": "Court Information",
       "pricing": "Pricing",
+      "nonPeak": "Non-Peak",
+      "nonPeakPrice": "¥50/hr",
+      "nonPeakTime": "Mon–Fri 9:00 AM – 6:00 PM",
+      "peak": "Peak",
+      "peakPrice": "¥100/hr",
+      "peakTime": "Mon–Fri 6:00 PM – 10:00 PM, Sat–Sun 9:00 AM – 10:00 PM",
       "hours": "Operating Hours",
-      "hoursValue": "Open daily 8:00 AM – 10:00 PM",
+      "hoursValue": "Open daily 9:00 AM – 10:00 PM",
       "hoursNote": "Last booking starts at 9:00 PM",
       "courtsAvailable": "8 professional pickleball courts",
       "policy": "Booking Policy",
