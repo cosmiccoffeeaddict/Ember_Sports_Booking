@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, MapPin, Clock, Shield } from 'lucide-react';
+import { ArrowRight, Users, CreditCard, Wifi } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const Home: React.FC = () => {
@@ -9,27 +9,28 @@ const Home: React.FC = () => {
 
   const features = [
     {
-      icon: MapPin,
-      title: t('features.courts.title'),
-      description: t('features.courts.desc'),
+      icon: Users,
+      title: t('features.community.title'),
+      description: t('features.community.desc'),
+      tags: t('features.community.tags', { returnObjects: true }) as string[],
     },
     {
-      icon: Clock,
-      title: t('features.flexible.title'),
-      description: t('features.flexible.desc'),
+      icon: CreditCard,
+      title: t('features.payment.title'),
+      description: t('features.payment.desc'),
+      tags: t('features.payment.tags', { returnObjects: true }) as string[],
     },
     {
-      icon: Shield,
-      title: t('features.secure.title'),
-      description: t('features.secure.desc'),
+      icon: Wifi,
+      title: t('features.facilities.title'),
+      description: t('features.facilities.desc'),
+      tags: t('features.facilities.tags', { returnObjects: true }) as string[],
     },
   ];
 
   return (
     <div className="min-h-screen">
       <section className="relative py-16 lg:py-24 overflow-hidden bg-gray-900">
-        {/* Orange gradient overlay */}
-        <div className="absolute top-0 right-0 w-[60%] h-full bg-gradient-to-bl from-orange-500/[0.08] to-transparent pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
@@ -82,8 +83,21 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-20 bg-gray-900 relative overflow-hidden">
+        {/* Subtle decorative glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <span className="text-orange-500 text-sm font-semibold tracking-widest uppercase mb-3 block">{t('features.label')}</span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-bold text-white"
+            >
+              {t('features.title')}
+            </motion.h2>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
               <motion.div
@@ -91,13 +105,20 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-2xl bg-white border border-gray-200 card-shadow hover:translate-y-[-2px] transition-all duration-300"
+                className="p-6 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-orange-500/30 hover:shadow-lg hover:shadow-orange-500/5 hover:translate-y-[-2px] transition-all duration-300 flex flex-col"
               >
                 <div className="w-12 h-12 bg-orange-500/10 rounded-xl flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-orange-500" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-base text-gray-500">{feature.description}</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-base text-gray-400 mb-4 flex-grow">{feature.description}</p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {feature.tags.map((tag: string, i: number) => (
+                    <span key={i} className="px-3 py-1 text-xs font-medium bg-orange-500/10 text-orange-400 border border-orange-500/20 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>

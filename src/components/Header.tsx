@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, User, Home, Menu, X } from 'lucide-react';
+import { Calendar, User, Home, Menu, X, Info } from 'lucide-react';
 import { supabase } from '../supabase/client';
 import { useTranslation } from '../hooks/useTranslation';
 import { useTranslation as useReactI18nextTranslation } from 'react-i18next';
@@ -20,6 +20,7 @@ const Header: React.FC<HeaderProps> = ({ user }) => {
 
   const navItems = [
     { path: '/', label: t('nav.home'), icon: Home },
+    { path: '/about', label: t('nav.about'), icon: Info },
     { path: '/booking', label: t('nav.booking'), icon: Calendar },
     { path: '/my-bookings', label: t('nav.myBookings'), icon: User },
   ];

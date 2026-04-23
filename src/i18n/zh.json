@@ -3,6 +3,7 @@
   "brandShort": "合拍社",
   "nav": {
     "home": "首页",
+    "about": "关于我们",
     "booking": "预订场地",
     "myBookings": "我的预订",
     "login": "登录",
@@ -16,17 +17,22 @@
     "cta": "立即预订"
   },
   "features": {
-    "courts": {
-      "title": "优质场地",
-      "desc": "8个专业匹克球场地，配备专业灯光和设施"
+    "label": "为什么选择合拍社",
+    "title": "为什么选择合拍社",
+    "community": {
+      "title": "社区为本",
+      "desc": "不仅仅是球场——这是为连接而设计的空间。在这里放松、工作、运动，感受社区的温度。",
+      "tags": ["休息区", "工作站", "社区活动"]
     },
-    "flexible": {
-      "title": "灵活预订",
-      "desc": "支持按小时预订，随时查看场地空闲情况"
+    "payment": {
+      "title": "国际支付",
+      "desc": "为每一位球友提供便捷的预订体验，支持主流国际及本地支付方式，让您专注于运动。",
+      "tags": ["Visa", "Mastercard", "本地支付"]
     },
-    "secure": {
-      "title": "安全支付",
-      "desc": "在线支付，预订确认后立即锁定场地"
+    "facilities": {
+      "title": "设施齐全",
+      "desc": "从到达到离开，一切所需尽在掌握。轻装前来，我们为您准备好了一切。",
+      "tags": ["淋浴间", "免费WiFi", "免费停车"]
     }
   },
 
@@ -74,8 +80,8 @@
       "hoursNote": "最晚预订时间为 21:00",
       "courtsAvailable": "8 片专业匹克球场地",
       "policy": "预订须知",
-      "policyCancel": "开场前 2 小时可免费取消",
-      "policyArrive": "请提前 10 分钟到场",
+      "policyCancel": "预订后不可取消，所有订单视为最终销售",
+      "policyArrive": "请保持球场内外环境整洁，体谅他人，共同维护可持续的运动体验。",
       "policyPayment": "需支付确认预订"
     }
   },
@@ -145,8 +151,8 @@
     "description": "上海首选匹克球场地。专业球场、灵活预订、畅享运动。",
     "quickLinks": "快捷链接",
     "contact": "联系我们",
-    "address": "中国上海",
-    "phone": "+86 XXX XXXX XXXX",
+    "address": "上海市闵行区三鲁公路2121号（浦江镇501街坊5/2丘）第3幢",
+    "phone": "+86 189 1792 5015",
     "email": "info@embersports.com",
     "copyright": "© year 合拍社 版权所有",
     "home": "首页",
@@ -158,5 +164,23 @@
     "heading": "页面未找到",
     "description": "您访问的页面不存在或已被移动。",
     "goHome": "返回首页"
+  },
+  "about": {
+    "heroTitle": "构建运动的未来",
+    "heroSubtitle": "社区与创新的交汇",
+    "storyTitle": "我们的故事",
+    "storyP1": "我们是一支拥有国际视野的团队，因对运动和社区的共同热爱而走到一起。我们的旅程始于一个简单的信念：运动场馆不仅仅是球场——它们应该是人们连接、成长和共同繁荣的充满活力的空间。",
+    "storyP2": "我们的愿景是构建一个以社区为导向、由人工智能赋能的运动生态系统，让优质的运动体验对每个人来说都触手可及、充满乐趣。我们将温暖、专注和创新融入所做的每一件事。",
+    "valuesLabel": "我们的理念",
+    "valuesTitle": "我们的理念",
+    "valueCommunity": "社区优先",
+    "valueCommunityDesc": "打造因热爱运动而结缘、因友谊而繁荣的社区空间。",
+    "valueInnovation": "AI 赋能",
+    "valueInnovationDesc": "运用科技为球员和场馆创造更智能、更流畅的体验。",
+    "valueInclusive": "全球包容",
+    "valueInclusiveDesc": "以开放的胸怀和国际化的视野欢迎来自各方的运动爱好者。",
+    "shanghaiTitle": "首个场馆 — 上海",
+    "shanghaiDesc": "公司创立于新加坡，首个场馆落地上海——一座完美融合传统与创新、东方与西方的城市，是我们全球愿景的理想起点。",
+    "shanghaiAddress": "上海市闵行区三鲁公路2121号（浦江镇501街坊5/2丘）第3幢"
   }
 }

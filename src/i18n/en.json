@@ -3,6 +3,7 @@
   "brandShort": "Ember Sports",
   "nav": {
     "home": "Home",
+    "about": "About",
     "booking": "Book a Court",
     "myBookings": "My Bookings",
     "login": "Sign In",
@@ -16,17 +17,22 @@
     "cta": "Book Now"
   },
   "features": {
-    "courts": {
-      "title": "Premium Courts",
-      "desc": "8 professional pickleball courts with professional lighting and facilities"
+    "label": "WHY EMBER",
+    "title": "Why Choose Ember",
+    "community": {
+      "title": "Community Centered",
+      "desc": "More than courts — a space designed for connection. Relax, work, and play in an environment built to bring people together.",
+      "tags": ["Rest Area", "Workstation", "Community Events"]
     },
-    "flexible": {
-      "title": "Flexible Booking",
-      "desc": "Book by the hour, check court availability anytime"
+    "payment": {
+      "title": "International Payments",
+      "desc": "Seamless booking for everyone. We support major international and local payment methods so you can focus on playing.",
+      "tags": ["Visa", "Mastercard", "Local Pay"]
     },
-    "secure": {
-      "title": "Secure Payment",
-      "desc": "Online payment, court locked immediately after confirmation"
+    "facilities": {
+      "title": "Fully Equipped",
+      "desc": "Everything you need for a great experience, from arrival to departure. Come as you are — we've got you covered.",
+      "tags": ["Showers", "Free WiFi", "Free Parking"]
     }
   },
 
@@ -74,8 +80,8 @@
       "hoursNote": "Last booking starts at 9:00 PM",
       "courtsAvailable": "8 professional pickleball courts",
       "policy": "Booking Policy",
-      "policyCancel": "Free cancellation up to 2 hours before your slot",
-      "policyArrive": "Please arrive 10 minutes early",
+      "policyCancel": "All sales are final — no cancellation upon booking",
+      "policyArrive": "Keep the environment clean on and off court. Be considerate of others for a sustainable experience.",
       "policyPayment": "Payment required to confirm booking"
     }
   },
@@ -145,8 +151,8 @@
     "description": "Shanghai's premier pickleball venue. Professional courts, flexible booking, unforgettable games.",
     "quickLinks": "Quick Links",
     "contact": "Contact",
-    "address": "Shanghai, China",
-    "phone": "+86 XXX XXXX XXXX",
+    "address": "Building 3, No. 2121 Sanlu Road, Minhang District, Shanghai",
+    "phone": "+86 189 1792 5015",
     "email": "info@embersports.com",
     "copyright": "© year Ember Sports. All rights reserved.",
     "home": "Home",
@@ -158,5 +164,23 @@
     "heading": "Page Not Found",
     "description": "The page you're looking for doesn't exist or has been moved.",
     "goHome": "Go Home"
+  },
+  "about": {
+    "heroTitle": "Building the Future of Sports",
+    "heroSubtitle": "Where community meets innovation",
+    "storyTitle": "Our Story",
+    "storyP1": "We are a team with an international outlook, united by a shared passion for sports and community. Our journey began with a simple belief: that sports venues should be more than just courts — they should be vibrant spaces where people connect, grow, and thrive together.",
+    "storyP2": "Our vision is to build a community-oriented sports ecosystem, empowered by artificial intelligence, that makes premium sports experiences accessible and enjoyable for everyone. We bring warmth, dedication, and innovation to every aspect of what we do.",
+    "valuesLabel": "OUR VALUES",
+    "valuesTitle": "What We Stand For",
+    "valueCommunity": "Community First",
+    "valueCommunityDesc": "Building spaces where friendships form and communities flourish through the love of sport.",
+    "valueInnovation": "AI-Powered",
+    "valueInnovationDesc": "Leveraging technology to create smarter, more seamless experiences for players and venues.",
+    "valueInclusive": "Globally Inclusive",
+    "valueInclusiveDesc": "Welcoming players from all backgrounds with open arms and international sensibility.",
+    "shanghaiTitle": "Our First Venue — Shanghai",
+    "shanghaiDesc": "Founded in Singapore, our first venue calls Shanghai home — a city that embodies the perfect blend of tradition and innovation, East and West. The ideal launchpad for our global vision.",
+    "shanghaiAddress": "Building 3, No. 2121 Sanlu Road, Minhang District, Shanghai (Pujiang Town, Block 501, Lot 5/2)"
   }
 }

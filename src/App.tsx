@@ -12,6 +12,7 @@ import MyBookings from './pages/MyBookings';
 import Login from './pages/Login';
 import AuthCallback from './pages/AuthCallback';
 import Onboarding from './pages/Onboarding';
+import About from './pages/About';
 import NotFound from './pages/NotFound';
 import { supabase } from './supabase/client';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -59,6 +60,7 @@ function App() {
             <Route path="/booking" element={<Booking user={user} />} />
             <Route path="/my-bookings" element={user ? <MyBookings user={user} /> : <Navigate to="/login" />} />
             <Route path="/login" element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
